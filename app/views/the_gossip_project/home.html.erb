@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+  <body>
+    </br><h1><%= "bienvenue, #{User.last.first_name} !"%></h1></br>
+    <div class="container">
+      <div class="row">
+          <% @gossips.each_with_index do |obj, i| %>
+            <div class="col">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%=@gossips.find(i+1).user.first_name%></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><%=@gossips.find(i+1).title%></h6>
+                  <%= link_to "Potin entier", gossip_path(i+1)%>
+                </div>
+              </div>
+            </div>      
+          <%end%>
+      </div>
+    </div>
+    <h2>Pour créer un potin, c'est par <%=link_to "ici", new_new_gossip_path%> !</h2>
+  </body>
+</html>
+
+
+
+
+
+
+

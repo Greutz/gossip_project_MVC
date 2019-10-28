@@ -1,0 +1,55 @@
+<h1>Nouveau potin</h1>
+<form class="needs-validation" novalidate method="post">
+    <input type="hidden" name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+  <div class="form-row">
+    <div class="col-md-6 mb-6">
+      <label for="validationCustom01">Auteur</label>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="Entre ton prénom" value="" required name="auteur">
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-6 mb-6">
+      <label for="validationCustom02">Titre</label>
+      <input type="text" class="form-control" id="validationCustom02" placeholder="Titre" value="" required name="titre">
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+  </div>
+  <div class="col-md-6 mb-6">
+       <label for="ValidationCustom06">Potin</label>
+  <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Potin</span>
+      </div>
+      <textarea class="form-control" id="validationCustom06" placeholder="Potin" required aria-label="With textarea" name="potin"></textarea>
+      <div class="invalid-feedback">
+          Please provide a description.
+      </div>
+  </div>
+  <div class="col-md-12 mb-12">
+      </br><button class="btn btn-primary" type="submit">Post</button>
+  </div>
+</form>
+
+  <script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
