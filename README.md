@@ -2,8 +2,8 @@
   Application qui stocke et affiche des gossips
 
 ## Getting started
-  Cloner le repo avec la commande git clone https://github.com/Greutz/gossip_project_MVC dans le dossier souhaité
-  $ rails db:migrate pour créer les tables
+  Cloner le repo avec la commande git clone https://github.com/Greutz/gossip_project_MVC dans le dossier souhaité  
+  $ rails db:migrate pour créer les tables  
   $ rails db:seed pour peupler la base de données
 
 ### Launching
