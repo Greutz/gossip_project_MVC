@@ -1,4 +1,18 @@
 <h1>Nouveau potin</h1>
+
+<% if @gossip.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading"><strong>Error !</strong></h4>
+  <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+  <hr>
+  <ul>
+    <% @gossip.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
+
 <form class="needs-validation" novalidate method="post">
     <input type="hidden" name="authenticity_token"
     value="<%= form_authenticity_token %>">

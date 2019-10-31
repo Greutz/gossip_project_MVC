@@ -1,7 +1,7 @@
 <p>Potin de : <%=link_to "#{@user.first_name} "+ @user.last_name, user_page_path(@user.first_name) %></p>
 <%="Email : #{@user.email}"%></br>
 <%="Age : #{@user.age}"%></br>
-<%="Ville : #{@user.city.name}"%></br>
+<p>Ville : <%=link_to "#{@user.city.name}", city_path(@user.city.id)%></p></br>
 </br>
 </br>
 <h1><%=@gossip.title%></h1></br>

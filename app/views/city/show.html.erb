@@ -1,0 +1,7 @@
+<%=@city.name%></br>
+
+<%users = User.where(city_id: @city)%>
+<%gossips = Gossip.where(user_id: users.ids)%>
+<%gossips.each do |gossip|%>
+  <%= gossip.title%></br>
+<%end%>
