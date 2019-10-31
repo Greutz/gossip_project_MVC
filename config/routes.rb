@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :gossips
   resources :city
+  resources :sessions, only: [:new, :create, :destroy]
   post '/gossips/new', to: 'gossips#create'
   get 'user_page/:user', to: 'user_page#user_page', :as => :user_page
   get 'sign_up/', to: 'sign_up#sign_up'

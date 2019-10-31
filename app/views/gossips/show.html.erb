@@ -7,3 +7,8 @@
 <h1><%=@gossip.title%></h1></br>
 <%=@gossip.content%></br></br>
 <%="Créé le : #{@gossip.created_at}"%>
+
+</br>
+</br>
+
+<%= link_to "Edit gossip", edit_gossip_path(@gossip.id)%>
