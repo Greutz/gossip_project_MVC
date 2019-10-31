@@ -1,14 +1,65 @@
-<p>Potin de : <%=link_to "#{@user.first_name} "+ @user.last_name, user_page_path(@user.first_name) %></p>
-<%="Email : #{@user.email}"%></br>
-<%="Age : #{@user.age}"%></br>
-<p>Ville : <%=link_to "#{@user.city.name}", city_path(@user.city.id)%></p></br>
+<div class="jumbotron pb-2 pt-4">
+    <h1 class="display-4">Potin de : <%=link_to "#{@user.first_name} "+ @user.last_name, user_page_path(@user.first_name) %></h1>
+    <hr class="my-2">
+    <%="Email : #{@user.email}"%></br>
+    <p>Ville : <%=link_to "#{@user.city.name}", city_path(@user.city.id)%></p>
+</div>
+
+
+<div class="card mx-auto" style="width: 18rem;">
+  <img src="http://boxtutor.com/images800_/bully-clipart-10.png" class="card-img-top" alt="...">
+  <div class="card-header">
+    <%=link_to "#{@user.first_name} "+ @user.last_name, user_page_path(@user.first_name) %>
+    <%if @gossip.user == current_user%>
+    <a class="btn btn-light btn-primary" href="#">
+        <%= link_to "Edit", edit_gossip_path(@gossip.id), class: "fas fa-edit"%>
+    </a>
+    <a class="btn btn-light btn-primary" data-confirm="are you sure ?" data-method="DELETE"href="#">
+        <i class="far fa-trash-alt">Delete</i>
+    </a>
+    <%end%>
+    <h1><%=@gossip.title%></h1>
+    <%="Créé le : #{@gossip.created_at}"%></br>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%=@gossip.content%></p>
+  </div>
+</div>
 </br>
+
+<%= form_for @comment_new do |f|%>
+  <div class="container justify-content-center" style="width: 30rem;">
+    <input type="hidden" name="gossip_id" value="<%=@gossip.id%>">
+    <label>Comment : </label>
+    <%= f.text_field :content, class: 'form-control mb-1'%>
+    <button class="btn btn-primary" type="submit">Post</button>
+  </div>
+<%end%>  
+
 </br>
-<h1><%=@gossip.title%></h1></br>
-<%=@gossip.content%></br></br>
-<%="Créé le : #{@gossip.created_at}"%>
+<div class="jumbotron py-3 ">
+  <div class="container">
+    <h1 class="display-4">Comments</h1>
+  </div>
+</div>
+
+<%@comment.each do |comm|%>
+  <div class="card mx-auto" style="width: 18rem;">
+    <div class="card-header">
+      <%=link_to comm.user.first_name%>
+      <%if current_user == comm.user.id%>
+        <a class="btn btn-light btn-primary" href="#">
+          <%= link_to "Edit", edit_comment_path(comm.id), class: "fas fa-edit"%>
+        </a>
+      <%end%>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%=comm.content%></p>
+    </div>
+  </div></br>
+<%end%>
 
 </br>
 </br>
 
-<%= link_to "Edit gossip", edit_gossip_path(@gossip.id)%>
+

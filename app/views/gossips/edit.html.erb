@@ -17,7 +17,7 @@
   <div class="form-row justify-content-center">
     <div class="col-md-6 mb-6">
       <label for="validationCustom02">Titre</label>
-        <input type="text" class="form-control" id="validationCustom02" placeholder="Titre" value="" required name="titre">
+        <%= f.text_field :title, class: 'form-control'%>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -30,7 +30,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Potin</span>
           </div>
-          <textarea class="form-control" id="validationCustom06" placeholder="Potin" required aria-label="With textarea" name="potin"></textarea>
+          <%= f.text_area :content, class: 'form-control'%>
           <div class="invalid-feedback">
               Modifiez votre potin svp.
           </div>

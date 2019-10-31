@@ -19,33 +19,24 @@
 <script>
 $(".alert").alert('close')
 </script>
+    <h2>Pour créer un potin, c'est par <%=link_to "ici", new_gossip_path%> !</h2></br>
 
     <div class="container">
       <div class="row">
           <% @gossips.each_with_index do |obj, i| %>
             <div class="col-6 col-sm-4 col-md-4 col-lg-4 mt-5 align-items-center">
               <div class="card" style="width: 18rem;">
+              <img src="https://t4.ftcdn.net/jpg/02/99/57/77/240_F_299577731_aIvhevVjsFZLMhhgv00eWzCbOnmbOTho.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title"><%=@gossips.find(i+1).user.first_name %></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><%=@gossips.find(i+1).title%></h6>
-                  <%= link_to "Potin entier", gossip_path(i+1)%>
+                  <h5 class="card-title"><%=obj.user.first_name %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><%=obj.title%></h6>
+                  <%= link_to "Potin entier", gossip_path(obj.id)%>
                 </div>
               </div>
             </div>      
           <%end%>
       </div>
     </div>
-    <h2>Pour créer un potin, c'est par <%=link_to "ici", new_gossip_path%> !</h2>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+   
   </body>
 </html>
-
-
-
-
-
-
-

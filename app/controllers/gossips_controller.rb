@@ -9,7 +9,8 @@ class GossipsController < ApplicationController
 
   def update
     @gossip = Gossip.find(params[:id])
-    if @gossip.update(params[:titre, :potin])
+    permited_params = params.require(:gossip).permit(:title, :content)
+    if @gossip.update(permited_params)
       redirect_to @gossip
     else
       render :edit
@@ -17,6 +18,9 @@ class GossipsController < ApplicationController
   end
 
   def destroy
+    @gossip = Gossip.find(params[:id])
+    @gossip.destroy
+    redirect_to home_path
   end
   
   def new
@@ -29,6 +33,8 @@ class GossipsController < ApplicationController
     @user = User.find(id)
     @gossip = Gossip.find(params[:id].to_i)
     @user = Gossip.find(params[:id].to_i).user
+    @comment = Comment.where(gossip_id: params[:id])
+    @comment_new = Comment.new
   end
 
   def create
