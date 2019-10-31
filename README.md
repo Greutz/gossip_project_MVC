@@ -2,7 +2,9 @@
   Application qui stocke et affiche des gossips
 
 ## Getting started
-  Cloner le repo avec la commande git clone https://github.com/Greutz/gossip_project_MVC dans le dossier souhaité
+  Cloner le repo avec la commande git clone https://github.com/Greutz/gossip_project_MVC dans le dossier souhaité  
+  $ rails db:migrate pour créer les tables  
+  $ rails db:seed pour peupler la base de données
 
 ### Launching
   Entrer la commande ruby app.rb à la racine du dossier, bundle install sera effectué et launchy ouvrira un nouvel onglet de votre navigateur
