@@ -33,8 +33,8 @@ class GossipsController < ApplicationController
     @user = User.find(id)
     @gossip = Gossip.find(params[:id].to_i)
     @user = Gossip.find(params[:id].to_i).user
-    @comment = Comment.where(gossip_id: params[:id])
-    @comment_new = Comment.new
+    @comment_all = Comment.where(gossip_id: params[:id])
+    @comment_n = Comment.new
   end
 
   def create

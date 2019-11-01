@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :gossips
+  resources :gossips do
+    resources :comments
+  end
+  resources :comments
   resources :city
   resources :sessions, only: [:new, :create, :destroy]
-  resources :comments
   post '/gossips/new', to: 'gossips#create'
   get 'user_page/:user', to: 'user_page#user_page', :as => :user_page
   get 'sign_up/', to: 'sign_up#sign_up'

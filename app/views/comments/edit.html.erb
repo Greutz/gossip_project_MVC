@@ -1,0 +1,54 @@
+<h1>Edit a comment</h1>
+
+<% if @comment.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading"><strong>Error !</strong></h4>
+  <p>We couldn't edit your comment for this/those reason(s) : </p>
+  <hr>
+  <ul>
+    <% @comment.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
+
+<%= form_for @comment do |f|%>
+    <div class="form-row justify-content-center">
+      <div class="col-md-6 mb-6">
+          <label for="ValidationCustom06">Comment</label>
+      <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Comment</span>
+          </div>
+          <%= f.text_area :content, class: 'form-control'%>
+          <div class="invalid-feedback">
+              Please edit your comment.
+          </div>
+      </div>
+    </div>
+    <div class="col-md-12 mb-12">
+      </br><button class="btn btn-primary" type="submit">Post</button>
+  </div>
+<% end %>
+
+  <script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
